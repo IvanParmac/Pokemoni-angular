@@ -1,0 +1,8 @@
+<div >
+    <h1>
+      {{ title }}
+    </h1>
+      <div *ngFor="let card of pokemons" style="display: inline-block">
+        <img src={{card.imageUrl}} alt={{card.name}} routerLink="/detail/{{card.id}}"/>
+      </div>
+  </div>
