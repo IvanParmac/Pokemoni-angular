@@ -1,12 +1,25 @@
 <div>
-  <h1>
-    {{ title }}
-  </h1>
-</div>
-<div>
-  <nav>
-    <a routerLink="/home">HOME</a>
-    <a routerLink="/favourites">FAVOURITES</a>
-  </nav>
+  <ul class="header">
+    <li>
+      <a routerLink="/home" class="headerLink">HOME</a>
+    </li>
+    <li>
+      <a routerLink="/favourites" class="headerLink">FAVOURITES</a>
+      <li class="dropdown">
+        <button class="btn dropdown-toggle headerLink" 
+          type="button" 
+          id="dropdownMenuButton" 
+          data-toggle="dropdown" 
+          aria-haspopup="true"
+          aria-expanded="false"
+          >
+            SORT BY
+        </button>
+        <ul class="dropdown-menu dropDownMenu">
+          <li class="dropdown-item dropDownItem" (click)="sortBy('hp')">HP</li>
+          <li class="dropdown-item  dropDownItem" (click)="sortBy('name')">NAME</li>
+        </ul>
+      </li>
+  </ul>
   <router-outlet></router-outlet>
 </div>

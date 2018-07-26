@@ -1,107 +1,115 @@
-<div>
+<div *ngIf="pokemon">
   <div class="row flexibleContainer">
     <div class="firstCollClass col-12 col-sm-5 col-md-5 col-lg-5">
-      <img src={{card.imageUrl}} alt={{card.name}} />
+      <img src={{pokemon.imageUrl}} alt={{pokemon.name}} />
     </div>
     <div class="secondCollClass col-12 col-sm-7 col-md-7 col-lg-7">
       <div class="row">
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 cardNameClass">
-          <div>{{card.name}} </div>
+          <div>{{pokemon.name}} </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 cardSupertypeClass">
-          {{card.supertype}} {{card.subtype}}
+          {{pokemon.supertype}} {{pokemon.subtype}}
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 hpClass" *ngIf="card.types">
-          HP: {{card.hp}}
-          <div *ngFor="let cardType of card.types ">
-            {{cardType}}
-          </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 hpClass" *ngIf="pokemon.types">
+          HP: {{pokemon.hp}}
+          <span *ngFor="let cardType of pokemon.types ">
+            <span class="energy {{cardType.toLowerCase()}}"></span>
+          </span>
         </div>
       </div>
       <div class="row">
-        <div *ngIf="card.ability && card.ability.length!==0">
+        <div *ngIf="pokemon.ability && pokemon.ability.length!==0">
           <div class="abilityTypeClass">
-            {{card.ability.type}}
-            <span class="abilityNameClass">{{card.ability.name}}</span>
+            {{pokemon.ability.type}}
+            <span class="abilityNameClass">{{pokemon.ability.name}}</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div style=" font-size: 16px; color: rgb(74, 74, 74); ">
-          {{(card.ability && card.ability.text) ? card.ability.text : null}}
+          {{(pokemon.ability && pokemon.ability.text) ? pokemon.ability.text : null}}
         </div>
       </div>
-      <div class="row" style=" padding-top: '10px'; font-size: '20px'; font-family: serif; ">
-        {{(card.text) ? ('RULES') : null}}
+      <div class="row" style=" padding-top: 10px; font-size: 20px; font-family: serif; ">
+        {{(pokemon.text) ? ('RULES') : null}}
       </div>
       <div class="row" style=" font-size: 16px; color: rgb(74, 74, 74); padding-bottom: 10px ">
-        {{(card.text) ? (card.text) : null}}
+        {{(pokemon.text) ? (pokemon.text) : null}}
       </div>
-      <div class="row" *ngFor="let attack of card.attacks">
-        <div *ngFor="let cost of attack.cost">
-          {{cost}}
+      <div class="row biggerFont" style="flex-direction: column" *ngFor="let attack of pokemon.attacks">
+        <div><span *ngFor="let cost of attack.cost">
+          <span class="energy {{cost.toLowerCase()}}"></span>
+        </span>
+        {{attack.name}}&nbsp;<span *ngIf="attack.damage">| {{attack.damage}} </span>
         </div>
-        {{attack.name}}| {{attack.damage}}
-        <div style="font-Size: 16px; color:rgb(74, 74, 74); padding-Bottom:10px; "> {{(attack.text) ? (attack.text) : (null)}}</div>
+        <div style="font-Size: 16px; color:rgb(74, 74, 74); padding-Bottom:10px;"> {{(attack.text) ? (attack.text) : (null)}}</div>
       </div>
-      <div class="row" *ngIf="card.hp!=='None'">
+      <div class="row biggerFont" *ngFor="let attack of pokemon.attacks"></div>
+      <div class="row" *ngIf="pokemon.hp!=='None'">
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont">
             WEAKNESSES
           </div>
-          <div *ngIf="card.weaknesses && card.weaknesses.length!==0;else no_weaknesses">
-            <div class="row serifFont" *ngFor="let weakness of card.weaknesses">
-              {{weakness.type}}{{weakness.value}}
+          <div *ngIf="pokemon.weaknesses && pokemon.weaknesses.length!==0;else no_weaknesses">
+            <div class="row serifFont" *ngFor="let weakness of pokemon.weaknesses">
+              <span class="energy {{weakness.type.toLowerCase()}}"></span> {{weakness.value}}
             </div>
           </div>
-          <ng-template #no_weaknesses>N/A</ng-template>
+          <ng-template #no_weaknesses class="row serifFont2">
+            <span class="row serifFont2">N/A </span>
+          </ng-template>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont">
             RESISTANCE
           </div>
-          <div *ngIf="card.resistances && card.resistances.length!==0;else no_resistances">
-            <div class="row serifFont2" *ngFor="let resistance of card.resistances">
-              {{resistance.type}}{{resistance.value}}
+          <div *ngIf="pokemon.resistances && pokemon.resistances.length!==0;else no_resistances">
+            <div class="row serifFont2" *ngFor="let resistance of pokemon.resistances">
+              <span class="energy {{resistance.type.toLowerCase()}}"></span>{{resistance.value}}
             </div>
           </div>
-          <ng-template #no_resistances>N/A</ng-template>
+          <ng-template #no_resistances>
+            <span class="row serifFont2">N/A </span>
+          </ng-template>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont">
             RETREAT COST
           </div>
-          <div *ngIf="card.retreatCost && card.retreatCost.length!==0;else no_Cost">
-            <div class="row serifFont" *ngFor="let cost of card.retreatCost">
-              {{cost}}
-            </div>
+          <div *ngIf="pokemon.retreatCost && pokemon.retreatCost.length!==0;else no_Cost" class="row serifFont">
+            <span *ngFor="let cost of pokemon.retreatCost">
+              <span class="energy {{cost.toLowerCase()}}"></span>
+            </span>
           </div>
-          <ng-template #no_Cost>N/A</ng-template>
+          <ng-template #no_Cost class="row serifFont2">
+            <span class="row serifFont2">N/A </span>
+          </ng-template>
         </div>
       </div>
       <div class="row">
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont">
             ARTIST
           </div>
           <div class="row serifFont2">
-            {{card.artist}}
+            {{pokemon.artist}}
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont ">
             RARITY
           </div>
           <div class="row serifFont2">
-            {{(card.rarity) ? (card.rarity) : ('N/A')}}
+            {{(pokemon.rarity) ? (pokemon.rarity) : ('N/A')}}
           </div>
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 textAlignCenter">
-          <div class="row">
+          <div class="row biggerFont">
             SET
           </div>
           <div class="row serifFont2">
-            {{card.set}}
+            {{pokemon.set}}
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ body {
 }
 
 .energy {
-  background-image: url('/images/energy-types.png');
+  background-image: url('../energytypes.png');
   width: 25px;
   height: 25px;
   display: inline-block;
@@ -146,6 +146,12 @@ color:rgb(17, 16, 16);
   font-style: normal;
 }
 
+.serifFont2{
+  font-family: serif;
+  font-style: italic;
+  font-size: 20px;
+}
+
 .textAlignCenter{
   text-align: center;
   padding-bottom: 5px;
@@ -154,13 +160,9 @@ color:rgb(17, 16, 16);
 
 .serifFont{
   font-family: serif;
-}
-
-.serifFont2{
-  font-family: serif;
-  font-style: italic;
   font-size: 20px;
 }
+
 
 .flexibleContainer{
   display: flex;
@@ -177,4 +179,8 @@ secondCollClass{
 
 .anticon-star{
   color:yellow;
+}
+
+.biggerFont{
+  font-size: 15px;
 }

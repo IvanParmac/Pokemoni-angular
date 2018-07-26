@@ -33,12 +33,6 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cdk@^6.0.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-6.3.0.tgz#fd914e4e145e48db1d51f38012178b97ddb78772"
-  dependencies:
-    tslib "^1.7.1"
-
 "@angular/cli@~1.7.4":
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.7.4.tgz#b6c31b5fc6f8ea07e55b1b01a26422f5358a4ea6"
@@ -164,6 +158,14 @@
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.11.tgz#65a902daea923086ec728817c43d87becd99d7a7"
   dependencies:
     tslib "^1.7.1"
+
+"@ngrx/store-devtools@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-6.0.1.tgz#6049208d1ef8dc5f1f96ffc63373eab2d72f957c"
+
+"@ngrx/store@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-6.0.1.tgz#02c806ce20c698b997e81f5671e0edc07d32cf86"
 
 "@ngtools/json-schema@1.2.0":
   version "1.2.0"
@@ -1598,10 +1600,6 @@ dashdash@^1.12.0:
 data-uri-to-buffer@1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-1.2.0.tgz#77163ea9c20d8641b4707e8f18abdf9a78f34835"
-
-date-fns@^1.29.0:
-  version "1.29.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.29.0.tgz#12e609cdcb935127311d04d33334e2960a2a54e6"
 
 date-format@^1.2.0:
   version "1.2.0"
@@ -4309,13 +4307,6 @@ netmask@^1.0.6:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
-
-ng-zorro-antd@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ng-zorro-antd/-/ng-zorro-antd-1.0.0.tgz#7d8d5ed37c3c81736cf49ee041001bcaa5c7b83e"
-  dependencies:
-    "@angular/cdk" "^6.0.0"
-    date-fns "^1.29.0"
 
 ngx-bootstrap@^3.0.1:
   version "3.0.1"

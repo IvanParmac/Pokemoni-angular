@@ -1,0 +1,52 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  background-color: rgb(120, 195, 245);
+  justify-content: flex-start;
+  height: 6vh;
+  min-height: 32px;
+}
+
+.headerLink{
+  min-width: 80px;
+  background-color: rgb(120, 195, 245);
+  text-align: center;
+  color: black;
+  font-size: 25px;
+  padding: 0 20px;
+  border: none;
+}
+
+.headerLink a{
+  color:rgb(17, 16, 16);
+  border: none;
+  }
+  
+.headerLink:hover{
+  background-color: rgb(92, 136, 165);
+  color: white;
+  cursor: pointer;
+}
+
+.dropDownItem{
+  font-size: 15px;
+  background-color: rgb(120, 195, 245);
+  text-align: center;
+  color: black;
+}
+
+.dropDownItem:hover{
+  font-size: 15px;
+  background-color: rgb(92, 136, 165);
+  color: white;
+  cursor: pointer;
+}
+
+.dropDownItem a{
+  color:rgb(17, 16, 16);
+  }
+
+.dropdown-menu{
+  padding: 0;
+}

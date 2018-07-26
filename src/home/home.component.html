@@ -1,8 +1,15 @@
-<div >
-    <h1>
-      {{ title }}
-    </h1>
-      <div *ngFor="let card of pokemons" style="display: inline-block">
-        <img src={{card.imageUrl}} alt={{card.name}} routerLink="/detail/{{card.id}}"/>
-      </div>
+<div>
+  <h1>
+    {{ title }}
+  </h1>
+  <div *ngFor="let pokemon of pokemons" style="display: inline-block">
+    <img src={{pokemon.imageUrl}} alt={{pokemon.name}} routerLink="/detail/{{pokemon.id}}" />
+    <button class="btn" type="button" (click)="toggleFavourites(pokemon)">
+      <span 
+        [ngClass]="isFavourite(pokemon) ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"
+        [ngStyle]="{'font-size.px': 20, 'color':isFavourite(pokemon) ? 'yellow' : 'grey' }"
+      >
+      </span>
+    </button>
   </div>
+</div>
